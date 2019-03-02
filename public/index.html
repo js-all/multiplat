@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <script src="./js/util.js"></script>
+    <script src="./js/class.js"></script>
+    <script src="js/speClass.js"></script>
+</head>
+<body>
+    <script src="js/main.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io('http://localhost:4042');
+        socket.on('ID', id => ID = id);
+        setInterval(() => {
+            let bx = "";
+            bx += parseInt((player.x + (parseInt(0b1111111111111111, 10) / 2)).toString(2));
+            for(let i = 0; i < 16 - bx.length;i++) {
+                bx = "0"+bx;
+            }
+            let by = "";
+            by += parseInt((player.y + (parseInt(0b1111111111111111, 10) / 2)).toString(2));
+            for(let i = 0; i < 16 - by.length;i++) {
+                by = "0"+by;
+            }
+            let bi = "";
+            if (ID === -1) return;
+            bi += (ID).toString(2); 
+            for(let i = 0; i < 4 - bi.length;i++) {
+                bi = "0"+bi;
+            }
+            socket.emit('DATA', )
+        }, 100)
+    </script>
+</body>
+</html>
